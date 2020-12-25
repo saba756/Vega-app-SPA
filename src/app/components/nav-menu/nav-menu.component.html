@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-xl bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Vega</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+    <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li [routerLinkActive]="['link-active']"  [routerLinkActiveOptions]="{exact: true}">
+        <a [routerLink]="['/vehicles']">
+            <span class='glyphicon glyphicon-home'></span> Vehicles
+        </a>
+    </li>
+    <li [routerLinkActive]="['link-active']">
+      <a [routerLink]="['/vehicles/new']">
+          <span class='glyphicon glyphicon-plus'></span> New Vehicle
+      </a>
+  </li>
+  <li [routerLinkActive]="['link-active']">
+    <a [routerLink]="['/admin']">
+        <span class='glyphicon glyphicon-education'></span> Admin
+    </a>
+</li>
+    </ul>
+  </div>
+</nav>
+<br>
