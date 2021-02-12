@@ -90,31 +90,18 @@ export class VehicleFormComponent implements OnInit {
     }
   }
   onSubmit(){
-    if(this.vehicle.id){
-      this.vechileService.update(this.vehicle)
-      .subscribe( x=>{
+    var result$ = (this.vehicle.id) ? this.vechileService.update(this.vehicle) : this.vechileService.create(this.vehicle);
+    result$.subscribe(vehicle => {
+      console.log("hiii", vehicle.id)
         this.toastr.success("the vehicle was successfully updated" , 'success' ,{
         timeOut:  5000
-        })
-      }
-
-      )
-    }
-    else {
-      this.vechileService.create(this.vehicle)
-      .subscribe( x => {
-        console.log(x)
-      }
-      )
+        });
+        this.router.navigate(['/vehicles/',vehicle.id ]);
+      });
     }
 
-  }
-  deleteVehicle(){
-    if(confirm("Are you sure you want to delete")){
-      this.vechileService.delete(this.vehicle.id)
-      .subscribe(x=>{
-        this.router.navigate(['/home']);
-      })
     }
-  }
-}
+
+
+
+

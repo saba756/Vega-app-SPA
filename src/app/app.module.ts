@@ -17,6 +17,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppErrorHandler } from './app.error.handler';
 import { VehiclelistComponent } from './components/vehiclelist/vehiclelist.component';
 import { PaginationComponent } from './components/shared/pagination/pagination.component';
+import { ViewVehicleComponent } from './components/view-vehicle/view-vehicle.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { PaginationComponent } from './components/shared/pagination/pagination.c
     HomeComponent,
     VehiclelistComponent,
     PaginationComponent,
+    ViewVehicleComponent,
 
   ],
   imports: [
