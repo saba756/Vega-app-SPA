@@ -92,11 +92,11 @@ export class VehicleFormComponent implements OnInit {
   onSubmit(){
     var result$ = (this.vehicle.id) ? this.vechileService.update(this.vehicle) : this.vechileService.create(this.vehicle);
     result$.subscribe(vehicle => {
-      console.log("hiii", vehicle.id)
+      // console.log("hiii", vehicle.id)
         this.toastr.success("the vehicle was successfully updated" , 'success' ,{
         timeOut:  5000
         });
-        this.router.navigate(['/vehicles/',vehicle.id ]);
+        this.router.navigate(['/vehicles/']);
       });
     }
 

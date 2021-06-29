@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { PhotoService } from 'src/app/services/photo.service';
@@ -16,6 +17,7 @@ export class ViewVehicleComponent implements OnInit {
   vehicleId: number;
   photos : any[];
   constructor(
+    private sanitizer:DomSanitizer,
     private route: ActivatedRoute,
     private router: Router,
     private toastr: ToastrService,
@@ -32,7 +34,7 @@ export class ViewVehicleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    debugger
     this.photoService.getPhotos(this.vehicleId)
     .subscribe((photos:any) =>
     {
@@ -67,5 +69,9 @@ export class ViewVehicleComponent implements OnInit {
       console.log(photo)
     })
   }
+
+  transform(images: any){
+    return this.sanitizer.bypassSecurityTrustResourceUrl(images);
+}
 
 }
